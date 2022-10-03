@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .huoyin{
+            width: 400px;
+            height: 300px;
+            margin: 60px auto;
+            overflow: hidden;
+            position: relative;
+            
+        }
+        .huoyin li{
+            position: absolute;
+            height: 100%;
+            
+        }
+        img{
+           width: 100%;
+           height: 100%;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="huoyin">
+        <li><img src="../images/4 (6).jpg" alt=""></li>
+        <li><img src="../images/4 (7).jpg" alt=""></li>
+        <li><img src="../images/4 (5).jpg" style="width: 400px;height: 300px;" alt=""></li>
+        <li><img src="../images/4 (4).jpg" style="width: 400px;height: 300px;" alt=""></li>
+        <div></div>
+    </div>
+    <script>
+        var li = document.querySelectorAll("li")
+        var huoyin = document.querySelector(".huoyin")
+        var times = setInterval(bofan, 1000)
+        var index = 0
+
+        
+        huoyin.onmouseout = function(){
+            var times = setInterval(bofan, 2000)
+        }
+        huoyin.onmouseover = function(){
+            clearInterval(times)
+        }
+
+
+        function bofan(){
+            if(++index>=li.length){
+                index = 0
+                
+            }hanshu(index)
+
+        }
+
+        function hanshu(shuliang){
+            for(var i = 0 ;i<li.length;i++){
+                li[i].style.display = "none"
+            }
+            li[shuliang].style.display = "block"
+        }
+    </script>
+</body>
+</html>
